@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-results-list',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ResultsListComponent implements OnInit {
 
-  constructor() { }
+    @Input('results') results : any[];
+
+  constructor(private router:Router) { }
 
   ngOnInit() {
+      console.log('ada',this.results);
+  }
+
+  viewDetail(result){
+      this.router.navigate([`./result-detail/${result.id}`])
+
   }
 
 }

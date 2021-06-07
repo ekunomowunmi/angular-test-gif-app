@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AppService } from '../app.service';
 
 @Component({
     selector: 'app-search-field',
@@ -7,10 +8,17 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./search-field.component.css']
 })
 export class SearchFieldComponent implements OnInit {
-    name = 'Search Field';
-    constructor() {
+    name = '';
+    constructor(private appService: AppService) {
     }
 
     ngOnInit() {
+    }
+
+    searchImage(){
+this.appService.getImagesFromText(this.name,25).subscribe((res:any) => {
+    console.log(res);
+    this.appService.images = res.data;
+})
     }
 }

@@ -1,0 +1,26 @@
+
+  <div class="col-12">
+      <div class="col-md-6">
+          <div class="card">
+              <img [src]="result.images.original.url" />
+          </div>
+      </div>
+      <div class="col-md-6" style="color: black;">
+          <h1>{{result.title}}</h1>
+          <div class="col-md-6">
+              <img [src]="result.user.avatar_url" style="width: 200px;"/>
+          </div>
+          <div class="col-md-6">
+              <h2>{{result.user.display_name}}</h2>
+              <div>{{result.user.description}}</div>
+              <label>
+               Verified: <input type="checkbox" [(ngModel)]="result.user.is_verified"  />
+            </label>
+          </div>
+      </div>
+
+  </div>
+  <div class="col-12">
+      <p><a routerLink="/results">Back to List</a></p>
+  </div>
+
