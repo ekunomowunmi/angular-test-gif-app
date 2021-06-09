@@ -1,12 +1,17 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed, async, inject } from '@angular/core/testing';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Mock } from 'protractor/built/driverProviders';
 import { of } from 'rxjs';
 import { AppComponent } from './app.component';
 import { AppService } from './app.service';
 import { MockAppService } from './mocks/app.service.mock';
+import { ResultDetailComponent } from './result-detail/result-detail.component';
+import { ResultsListComponent } from './results-list/results-list.component';
+import { ResultsComponent } from './results/results.component';
 import { SearchFieldComponent } from './search-field/search-field.component';
 
 describe('AppComponent', () => {
@@ -18,10 +23,16 @@ describe('AppComponent', () => {
     TestBed.configureTestingModule({
       imports: [
         RouterTestingModule,
-        HttpClientTestingModule
+        HttpClientTestingModule,
+        FormsModule,
+        BrowserModule
       ],
       declarations: [
-        AppComponent
+        AppComponent,
+        ResultsListComponent,
+        ResultsComponent,
+        ResultDetailComponent,
+        SearchFieldComponent
       ],
       providers:[{provide: AppService, useClass:MockAppService}]
     }).compileComponents();

@@ -33,6 +33,7 @@ describe('ResultsListComponent', () => {
   beforeEach(() => {
     fixture = TestBed.createComponent(ResultsListComponent);
     component = fixture.componentInstance;
+    component.results = [{images:{preview_gif:{url:'something'}}}];
      routee = RouterTestingModule.withRoutes(routes)
     fixture.detectChanges();
   });
